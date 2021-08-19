@@ -1,8 +1,10 @@
 package nl.rabobank.account;
 
-import lombok.Value;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
+@Data
+@NoArgsConstructor
 public class PaymentAccount implements Account
 {
     String accountNumber;

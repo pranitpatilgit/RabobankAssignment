@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -17,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 @EnableConfigurationProperties(MongoProperties.class)
 @Import(EmbeddedMongoAutoConfiguration.class)
 @RequiredArgsConstructor
+@EnableMongoAuditing
 public class MongoConfiguration extends AbstractMongoClientConfiguration
 {
     private final MongoProperties mongoProperties;

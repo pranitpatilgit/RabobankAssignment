@@ -24,7 +24,22 @@
             <artifactId>rabobank-assignment-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- Add your dependencies here! -->
+
+        <dependency>
+            <groupId>org.springframework.hateoas</groupId>
+            <artifactId>spring-hateoas</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+        </dependency>
+
     </dependencies>
 
 
