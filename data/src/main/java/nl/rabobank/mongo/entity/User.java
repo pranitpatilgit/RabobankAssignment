@@ -1,18 +1,18 @@
 package nl.rabobank.mongo.entity;
 
-import lombok.Builder;
-import lombok.Setter;
-import lombok.Value;
+import lombok.*;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
 @Document
-@Value
-@Setter
-@Builder
+@Data
+@NoArgsConstructor
 public class User extends AuditableEntity{
+
+    @Indexed(unique=true)
     String name;
 
     @DBRef

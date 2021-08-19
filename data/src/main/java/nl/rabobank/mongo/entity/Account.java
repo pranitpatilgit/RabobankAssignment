@@ -5,9 +5,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-@Getter
-@Setter
-@EqualsAndHashCode
+@Data
 public class Account extends AuditableEntity{
 
     @Indexed(unique=true)
