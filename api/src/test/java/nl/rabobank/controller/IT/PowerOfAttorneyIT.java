@@ -66,5 +66,12 @@ public class PowerOfAttorneyIT {
 
         Assert.assertFalse(userService.getUserByName("Ash").getReadAccounts().isEmpty());
         Assert.assertTrue(userService.getUserByName("Pranit").getReadAccounts().isEmpty());
+
+        mvc.perform(MockMvcRequestBuilders.get("/rest/user/Ash")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().is2xxSuccessful())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Ash"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.readAccounts[0].accountNumber").value("NL01BANK12345647"));
     }
 }
