@@ -1,15 +1,16 @@
 package nl.rabobank.dto;
 
-import lombok.Setter;
-import lombok.Value;
-import nl.rabobank.account.Account;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import nl.rabobank.authorizations.Authorization;
 
-@Value
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PowerOfAttorney {
     String granteeName;
     String grantorName;
-    Account account;
+    String accountNumber;
     Authorization authorization;
 }

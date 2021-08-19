@@ -1,8 +1,12 @@
 package nl.rabobank.dto;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -11,6 +15,6 @@ public class User {
 
     @NonNull
     String name;
-    List<Account> readAccounts;
-    List<Account> writeAccounts;
+    Set<Account> readAccounts = new HashSet<>();
+    Set<Account> writeAccounts = new HashSet<>();
 }

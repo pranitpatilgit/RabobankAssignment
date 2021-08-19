@@ -1,11 +1,13 @@
 package nl.rabobank.mongo.entity;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Document
 @Data
@@ -16,7 +18,7 @@ public class User extends AuditableEntity{
     String name;
 
     @DBRef
-    List<Account> readAccounts;
+    Set<Account> readAccounts = new HashSet<>();
     @DBRef
-    List<Account> writeAccounts;
+    Set<Account> writeAccounts = new HashSet<>();
 }
