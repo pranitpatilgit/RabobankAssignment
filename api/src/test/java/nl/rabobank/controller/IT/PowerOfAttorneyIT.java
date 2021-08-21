@@ -39,8 +39,8 @@ public class PowerOfAttorneyIT {
 
     @Test
     public void givenAccountAndUsers_whenProvidedPowerOfAttorney_thenStatus200AndAccountAddedToUser() throws Exception {
-        Account account1 = new Account("NL01BANK12345647", "Pranit" , 100.00, AccountType.SAVINGS);
-        Account account2 = new Account("NL01BANK12345648", "Ash" , 100.00, AccountType.PAYMENT);
+        Account account1 = new Account("NL02BANK12345647", "PranitT1" , 100.00, AccountType.SAVINGS);
+        Account account2 = new Account("NL02BANK12345648", "AshT1" , 100.00, AccountType.PAYMENT);
 
         //Given accounts and users
         mvc.perform(MockMvcRequestBuilders.post("/rest/account")
@@ -57,21 +57,21 @@ public class PowerOfAttorneyIT {
 
         //When
         PowerOfAttorney powerOfAttorney =
-                new PowerOfAttorney("Ash", "Pranit", "NL01BANK12345647", Authorization.READ);
+                new PowerOfAttorney("AshT1", "PranitT1", "NL02BANK12345647", Authorization.READ);
         mvc.perform(MockMvcRequestBuilders.post("/rest/poa")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(powerOfAttorney)))
                 .andExpect(MockMvcResultMatchers.status().isCreated());
 
-        Assert.assertFalse(userService.getUserByName("Ash").getReadAccounts().isEmpty());
-        Assert.assertTrue(userService.getUserByName("Pranit").getReadAccounts().isEmpty());
+        Assert.assertFalse(userService.getUserByName("AshT1").getReadAccounts().isEmpty());
+        Assert.assertTrue(userService.getUserByName("PranitT1").getReadAccounts().isEmpty());
 
-        mvc.perform(MockMvcRequestBuilders.get("/rest/user/Ash")
+        mvc.perform(MockMvcRequestBuilders.get("/rest/user/AshT1")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().is2xxSuccessful())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Ash"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.readAccounts[0].accountNumber").value("NL01BANK12345647"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("AshT1"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.readAccounts[0].accountNumber").value("NL02BANK12345647"));
     }
 }

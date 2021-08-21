@@ -33,7 +33,7 @@ public class AccountIT {
     @Test
     public void givenAccount_whenAddAccount_thenStatus200AndAccountCreated() throws Exception {
         //Given account data
-        Account account1 = new Account("NL01BANK12345647", "Pranit" , 100.00, AccountType.SAVINGS);
+        Account account1 = new Account("NL03BANK12345647", "PranitT2" , 100.00, AccountType.SAVINGS);
 
         //When
         mvc.perform(MockMvcRequestBuilders.post("/rest/account")
@@ -43,10 +43,10 @@ public class AccountIT {
                 .andExpect(MockMvcResultMatchers.status().isCreated());
 
         //Then
-        mvc.perform(MockMvcRequestBuilders.get("/rest/account/NL01BANK12345647")
+        mvc.perform(MockMvcRequestBuilders.get("/rest/account/NL03BANK12345647")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().is2xxSuccessful())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.accountHolderName").value("Pranit"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.accountHolderName").value("PranitT2"));
     }
 }
