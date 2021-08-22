@@ -108,8 +108,8 @@ Following endpoints can be used
 
 ### **Future Improvements**
 
-- 
--
+- Integration Tests for error scenarios
+- Extra endpoints for user and account
 
 
 ### **Author**
