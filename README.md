@@ -52,7 +52,7 @@ Following endpoints can be used
             http://localhost:8080/rest/account
 
   Sample Response (With HTTP Status Code - 201)
-``
+
           {
             "accountNumber": "NL01BANK12341234",
             "accountHolderName": "Pranit",
