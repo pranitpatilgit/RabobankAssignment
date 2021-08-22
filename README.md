@@ -29,12 +29,12 @@ Following endpoints can be used
 
       Sample Request
 
-             curl --location --request GET http://localhost:8080/rest/account/NL01INGB12341234 
+             curl --location --request GET http://localhost:8080/rest/account/{ACCOUNT_NUMBER} 
 
       Sample Response (With HTTP Status Code - 200)
 
              {
-                "accountNumber": "NL01INGB12341234",
+                "accountNumber": "NL01BANK12341234",
                 "accountHolderName": "Pranit",
                 "balance": 100.0,
                 "accountType": "SAVINGS"
@@ -48,13 +48,13 @@ Following endpoints can be used
 
           curl --header "Content-Type: application/json" \
             --request POST \
-            --data '{"accountNumber":"NL01INGB12341234","accountHolderName":"Pranit","balance":100.0,"accountType":"SAVINGS"}' \
+            --data '{"accountNumber":"NL01BANK12341234","accountHolderName":"Pranit","balance":100.0,"accountType":"SAVINGS"}' \
             http://localhost:8080/rest/account
 
   Sample Response (With HTTP Status Code - 201)
-
+``
           {
-            "accountNumber": "NL01INGB12341234",
+            "accountNumber": "NL01BANK12341234",
             "accountHolderName": "Pranit",
             "balance": 100.0,
             "accountType": "SAVINGS"
@@ -68,7 +68,7 @@ Following endpoints can be used
 
         curl --header "Content-Type: application/json" \
             --request POST \
-            --data '{"granteeName" : "Ash", "grantorName" : "Pranit", "accountNumber" : "NL01INGB12341234", "authorization" : "READ"}'
+            --data '{"granteeName" : "Ash", "grantorName" : "Pranit", "accountNumber" : "NL01BANK12341234", "authorization" : "READ"}' \
             http://localhost:8080/rest/poa
 
   Sample Response (With HTTP Status Code - 201)
@@ -88,7 +88,7 @@ Following endpoints can be used
                   "name": "Ash",
                   "readAccounts": [
                       {
-                      "accountNumber": "NL01INGB12341234",
+                      "accountNumber": "NL01BANK12341234",
                       "accountHolderName": "Pranit",
                       "balance": 100.0,
                       "accountType": "SAVINGS"
@@ -96,7 +96,7 @@ Following endpoints can be used
                   ],
                   "writeAccounts": [
                       {
-                      "accountNumber": "NL03INGB12341234",
+                      "accountNumber": "NL03BANK12341234",
                       "accountHolderName": "X",
                       "balance": 100.0,
                       "accountType": "SAVINGS"
