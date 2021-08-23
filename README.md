@@ -12,7 +12,9 @@ This project is maven project so can be build using following maven command
 
 ### **Deploy**
 - Run nl.rabobank.RaboAssignmentApplication from your IDE
+ 
   OR
+
 - Run following command after maven build
 
         java -jar rabobank-assignment-api-0.0.1-SNAPSHOT.jar
@@ -108,6 +110,7 @@ Following endpoints can be used
 
 ### **Future Improvements**
 
+- Run with Docker (Currently problems with embedded mongo)
 - Integration Tests for error scenarios
 - Extra endpoints for user and account
 
